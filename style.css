@@ -14,7 +14,7 @@ html{
 body{
   font-family:Arial, sans-serif;
   background:#0b0b0b;
-  color:white;
+  color:#fff;
   overflow-x:hidden;
 }
 
@@ -24,15 +24,17 @@ body{
 header{
   position:fixed;
   top:0;
+  left:0;
   width:100%;
   z-index:1000;
 
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
 
   padding:18px 8%;
-  background:rgba(0,0,0,0.75);
+
+  background:rgba(0,0,0,0.35);
   backdrop-filter:blur(10px);
   border-bottom:1px solid rgba(255,255,255,0.08);
 }
@@ -42,19 +44,23 @@ header{
   font-weight:bold;
   letter-spacing:3px;
   text-transform:uppercase;
-  color:white;
+  color:#fff;
   text-decoration:none;
 }
 
+/* NAVBAR KANAN */
 nav{
   display:flex;
+  align-items:center;
   gap:25px;
+  margin-left:auto;
 }
 
 nav a{
-  color:white;
+  color:#fff;
   text-decoration:none;
-  transition:0.3s;
+  transition:.3s;
+  font-size:1rem;
 }
 
 nav a:hover{
@@ -62,19 +68,24 @@ nav a:hover{
 }
 
 /* =========================
-   HERO
+   HERO (16:9 FIX)
 ========================= */
 .hero{
-  height:100vh;
   position:relative;
+  width:100%;
+  aspect-ratio:16 / 9;
+  overflow:hidden;
+  margin-top:70px; /* biar tidak ketutup header */
 }
 
 .hero img{
   width:100%;
   height:100%;
   object-fit:cover;
+  display:block;
 }
 
+/* DARK OVERLAY */
 .hero::before{
   content:"";
   position:absolute;
@@ -88,6 +99,7 @@ nav a:hover{
   left:50%;
   transform:translate(-50%,-50%);
   text-align:center;
+  z-index:2;
 }
 
 .hero-text h1{
@@ -126,11 +138,9 @@ nav a:hover{
 
 /* =========================
    MEMBERS
-   (GLOW EFFECT)
 ========================= */
 .members{
   margin-top:40px;
-
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
   gap:20px;
@@ -140,9 +150,8 @@ nav a:hover{
   background:#151515;
   padding:25px;
   border-radius:12px;
-
-  transition:0.3s;
   border:1px solid rgba(255,255,255,0.05);
+  transition:.3s;
 }
 
 .member:hover{
@@ -162,12 +171,10 @@ nav a:hover{
 }
 
 /* =========================
-   SOCIAL MEDIA
-   (NEON GLOW)
+   SOCIAL
 ========================= */
 .social-links{
   margin-top:30px;
-
   display:flex;
   justify-content:center;
   gap:15px;
@@ -177,11 +184,10 @@ nav a:hover{
 .social-links a{
   padding:12px 20px;
   border:1px solid #ff3b3b;
-  color:white;
+  color:#fff;
   text-decoration:none;
-
   border-radius:6px;
-  transition:0.3s;
+  transition:.3s;
 }
 
 .social-links a:hover{
@@ -204,9 +210,11 @@ footer{
    TABLET
 ========================= */
 @media(max-width:1024px){
+
   .hero-text h1{
     font-size:3rem;
   }
+
 }
 
 /* =========================
@@ -215,19 +223,24 @@ footer{
 @media(max-width:768px){
 
   header{
-    flex-direction:column;
-    gap:10px;
-    padding:15px;
+    padding:15px 6%;
   }
 
   nav{
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:15px;
+    margin-left:auto;
+    gap:12px;
+  }
+
+  nav a{
+    font-size:.85rem;
   }
 
   .hero-text h1{
     font-size:2.3rem;
+  }
+
+  .hero-text p{
+    font-size:.9rem;
   }
 
   .section{
